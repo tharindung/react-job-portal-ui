@@ -144,26 +144,14 @@ const Footer = () => {
               <a className="group relative hover:text-white transition-colors duration-300">
                 <span className="relative z-10">Privacy Policy</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 bg-gray-800 border border-gray-700 rounded-lg p-3 text-xs text-gray-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50 shadow-xl">
-                  We collect and process your personal data to provide our services. Your information is never sold to third parties and is protected in accordance with applicable data protection laws.
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-700"></div>
-                </div>
               </a>
               <a className="group relative hover:text-white transition-colors duration-300">
                 <span className="relative z-10">Terms of Service</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 bg-gray-800 border border-gray-700 rounded-lg p-3 text-xs text-gray-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50 shadow-xl">
-                  By using JobPortal, you agree to our terms including acceptable use, account responsibilities, and content guidelines. We reserve the right to suspend accounts that violate these terms.
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-700"></div>
-                </div>
               </a>
               <a className="group relative hover:text-white transition-colors duration-300">
                 <span className="relative z-10">Cookie Policy</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 bg-gray-800 border border-gray-700 rounded-lg p-3 text-xs text-gray-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50 shadow-xl">
-                  We use cookies to enhance your browsing experience, remember your preferences, and analyse site traffic. You can manage or disable cookies through your browser settings at any time.
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-700"></div>
-                </div>
               </a>
               <Link
                 to="/contact"
