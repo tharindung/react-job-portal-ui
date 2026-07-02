@@ -8,9 +8,18 @@ GREEN=$'\033[92m'
 GRAY=$'\033[90m'
 RESET=$'\033[0m'
 
-model=$(echo "$input" | jq -r '.model.display_name // ""')
-used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-cwd=$(echo "$input" | jq -r '.cwd // ""')
+# Parse JSON using PowerShell (no jq required)
+parsed=$(printf '%s' "$input" | powershell.exe -NoProfile -NonInteractive -Command "
+  \$json = [Console]::In.ReadToEnd()
+  \$data = \$json | ConvertFrom-Json
+  \"\$(\$data.model.display_name)\"
+  \"\$(\$data.context_window.used_percentage)\"
+  \"\$(\$data.cwd)\"
+" 2>/dev/null | tr -d '\r')
+
+model=$(printf '%s\n' "$parsed" | sed -n '1p')
+used=$(printf '%s\n' "$parsed" | sed -n '2p')
+cwd=$(printf '%s\n' "$parsed" | sed -n '3p')
 
 # Git branch
 branch=""
@@ -21,9 +30,9 @@ fi
 # Progress bar (10 blocks wide)
 bar_display=""
 if [ -n "$used" ]; then
-  filled=$(echo "$input" | jq -r '(.context_window.used_percentage / 10) | floor | if . > 10 then 10 elif . < 0 then 0 else . end')
+  filled=$(awk "BEGIN {n=int(${used}/10); if(n>10) n=10; if(n<0) n=0; print n}")
   empty=$((10 - filled))
-  pct=$(echo "$input" | jq -r '.context_window.used_percentage | round')
+  pct=$(awk "BEGIN {printf \"%.0f\", ${used}}")
 
   filled_chars=""
   i=0
